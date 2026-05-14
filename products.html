@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Catalog | Stellar Realm Building Materials</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;600&amp;family=Inter:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#f8f9fa",
+                    "outline-variant": "#c4c6cf",
+                    "primary-container": "#002147",
+                    "tertiary-container": "#132330",
+                    "on-secondary-container": "#745c00",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#44474e",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#7b8b9b",
+                    "on-tertiary-fixed-variant": "#394857",
+                    "error-container": "#ffdad6",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-tertiary": "#ffffff",
+                    "secondary-container": "#fed65b",
+                    "on-secondary-fixed-variant": "#574500",
+                    "surface-dim": "#d9dadb",
+                    "surface-tint": "#465f88",
+                    "on-surface": "#191c1d",
+                    "on-error": "#ffffff",
+                    "outline": "#74777f",
+                    "surface-container-low": "#f3f4f5",
+                    "tertiary-fixed": "#d4e4f6",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#0d1d2a",
+                    "primary": "#000a1e",
+                    "on-primary-fixed": "#001b3d",
+                    "inverse-on-surface": "#f0f1f2",
+                    "secondary-fixed": "#ffe088",
+                    "inverse-primary": "#aec7f6",
+                    "on-secondary-fixed": "#241a00",
+                    "on-primary-container": "#708ab5",
+                    "on-background": "#191c1d",
+                    "secondary": "#735c00",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "surface-container-high": "#e7e8e9",
+                    "primary-fixed-dim": "#aec7f6",
+                    "tertiary-fixed-dim": "#b8c8da",
+                    "surface-container-highest": "#e1e3e4",
+                    "surface-variant": "#e1e3e4",
+                    "inverse-surface": "#2e3132",
+                    "primary-fixed": "#d6e3ff",
+                    "on-primary": "#ffffff",
+                    "surface": "#f8f9fa",
+                    "tertiary": "#000c18",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#edeeef",
+                    "surface-bright": "#f8f9fa"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "container-max": "1280px",
+                    "margin-desktop": "64px",
+                    "unit": "8px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Open Sans"],
+                    "display-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "body-md": ["Open Sans"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "0em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .product-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover .spec-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .sidebar-link.active {
+            @apply bg-primary text-white border-l-4 border-secondary-fixed;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        .sticky-nav-offset {
+            top: 5rem;
+        }
+    </style>
+
+<meta name="description" content="Stellar Realm Building Materials Trading supplies premium industrial, electrical, and mechanical products across the UAE and GCC region."/>
+<meta name="keywords" content="building materials UAE, industrial supplies UAE, electrical products Abu Dhabi, cable glands UAE"/>
+<meta name="author" content="Stellar Realm"/>
+<meta name="robots" content="index, follow"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Stellar Realm Building Materials Trading UAE"/>
+<meta property="og:description" content="Premium industrial and building materials supplier in UAE."/>
+<meta name="theme-color" content="#002147"/>
+<link rel="canonical" href="https://yourdomain.com/"/>
+
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- Fixed CTAs for Mobile/Desktop visibility -->
+<div class="fixed bottom-6 right-6 z-[60] flex flex-col space-y-3 pointer-events-none">
+<button class="pointer-events-auto bg-secondary-fixed text-on-secondary-fixed px-6 py-3 rounded-full font-bold shadow-2xl flex items-center space-x-2 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">download</span>
+<span>Catalog</span>
+</button>
+<button class="pointer-events-auto bg-primary-container text-white px-6 py-3 rounded-full font-bold shadow-2xl flex items-center space-x-2 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">description</span>
+<span>Submit RFQ</span>
+</button>
+</div>
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 bg-surface/70 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm transition-all duration-300 ease-in-out">
+<div class="font-display-lg text-headline-md font-bold text-primary-container">Stellar Realm</div>
+<div class="hidden lg:flex items-center space-x-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="index.html">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="about.html">About</a>
+<a class="text-primary border-b-2 border-secondary font-bold pb-1 font-body-md" href="products.html">Products</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="contact.html">Contact</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="material-symbols-outlined text-primary-container p-2 rounded-full hover:bg-primary-container/5 transition-colors">chat</button>
+<button class="bg-primary-container text-white px-6 py-2 rounded font-bold text-label-sm hover:bg-primary transition-all">WhatsApp</button>
+</div>
+</nav>
+<main class="pt-28 pb-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Hero Section -->
+<header class="mb-12">
+<h1 class="font-display-lg text-display-lg text-primary-container mb-4">Product Catalog</h1>
+<p class="text-on-surface-variant font-body-lg max-w-2xl">A comprehensive browser for high-end electrical, instrumentation, and mechanical solutions in the GCC region.</p>
+</header>
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Sidebar Navigation -->
+<aside class="lg:w-72 flex-shrink-0">
+<div class="sticky sticky-nav-offset bg-white rounded-lg shadow-md border border-outline-variant/20 overflow-hidden">
+<div class="p-4 bg-primary-container text-white font-bold text-label-sm uppercase tracking-widest">
+                    Product Categories
+                </div>
+<nav class="flex flex-col py-2">
+<a class="sidebar-link px-4 py-3 text-body-md hover:bg-surface-container-low transition-colors flex items-center" href="#cable-glands">
+<span class="material-symbols-outlined mr-3 text-primary/60">settings_input_component</span>
+                        Cable Glands &amp; Acc.
+                    </a>
+<a class="sidebar-link px-4 py-3 text-body-md hover:bg-surface-container-low transition-colors flex items-center" href="#pipes-fittings">
+<span class="material-symbols-outlined mr-3 text-primary/60">plumbing</span>
+                        Pipes &amp; Fittings
+                    </a>
+<a class="sidebar-link px-4 py-3 text-body-md hover:bg-surface-container-low transition-colors flex items-center" href="#valves">
+<span class="material-symbols-outlined mr-3 text-primary/60">valve</span>
+                        Industrial Valves
+                    </a>
+<a class="sidebar-link px-4 py-3 text-body-md hover:bg-surface-container-low transition-colors flex items-center" href="#tubing">
+<span class="material-symbols-outlined mr-3 text-primary/60">precision_manufacturing</span>
+                        Tubing &amp; Gauges
+                    </a>
+<a class="sidebar-link px-4 py-3 text-body-md hover:bg-surface-container-low transition-colors flex items-center" href="#conduit">
+<span class="material-symbols-outlined mr-3 text-primary/60">electrical_services</span>
+                        RGS/PVC Conduit
+                    </a>
+<a class="sidebar-link px-4 py-3 text-body-md hover:bg-surface-container-low transition-colors flex items-center border-b border-outline-variant/10" href="#support-systems">
+<span class="material-symbols-outlined mr-3 text-primary/60">architecture</span>
+                        Support Systems
+                    </a>
+<a class="sidebar-link px-4 py-3 text-body-md hover:bg-surface-container-low transition-colors flex items-center" href="#power-distribution">
+<span class="material-symbols-outlined mr-3 text-primary/60">bolt</span>
+                        Power Distribution
+                    </a>
+</nav>
+<div class="p-4 bg-surface-container-low">
+<button class="w-full py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg text-label-sm uppercase hover:bg-secondary-fixed transition-colors">
+                        Quick RFQ
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Product Browser Content -->
+<div class="flex-grow space-y-20">
+<!-- Section: Cable Glands (Preserved & Updated) -->
+<section class="scroll-mt-28" id="cable-glands">
+<div class="flex items-center justify-between mb-8 border-l-4 border-secondary-container pl-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Cable Glands &amp; Accessories</h2>
+<span class="text-label-sm text-secondary uppercase tracking-widest">Industrial Grade Hardware</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Product Card -->
+<div class="product-card relative bg-white rounded-lg border border-outline-variant/30 overflow-hidden group shadow-sm hover:shadow-xl transition-all">
+<div class="aspect-square bg-surface-container-low p-6 flex items-center justify-center">
+<img alt="Metallic Glands" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChbmiWY1zAWmi9bszqDKK56-ZCEHohEdaqGVNTfgwJxrSgoGZJHeUjs6G2Jf9-02AXeZPekPhiZmLy2e3oxEPGr1RGr5wqV_hqCvgAWDzPXqB8s-kmBVEh-ZQWSySviuFcAl5XY-pHb5055aM9v6BWbfkiHJ_LZlffhdmTjWNC6ARKkzQRcYE0AFZWbL7dNnNK1QByFWCRZCo_0imYwp8wrr8FCPhlNxEq6IMh_IYCGrUYN6HfIATUsJc1B8ujCC8Ht4exLxm4eaQ"/>
+</div>
+<div class="p-4">
+<h4 class="font-bold text-primary-container text-body-md">Metallic Cable Glands</h4>
+<p class="text-label-sm text-on-surface-variant">Brass, Stainless Steel</p>
+</div>
+<div class="spec-overlay absolute inset-0 bg-primary-container/95 text-white p-6 opacity-0 translate-y-4 transition-all duration-300 flex flex-col justify-center">
+<h5 class="font-bold mb-2">Technical Specs</h5>
+<ul class="text-label-sm space-y-1 opacity-90">
+<li>• IP66 / IP68 Rated</li>
+<li>• Explosion Proof Options</li>
+<li>• Flameproof certified</li>
+<li>• Material: SS316L / Brass</li>
+</ul>
+<button class="mt-4 py-2 bg-secondary-fixed text-on-secondary-fixed font-bold rounded text-xs uppercase">View Datasheet</button>
+</div>
+</div>
+<!-- Items from List -->
+<div class="product-card bg-white rounded-lg border border-outline-variant/30 p-6 flex flex-col items-center justify-center text-center hover:border-secondary-container transition-all">
+<span class="material-symbols-outlined text-5xl text-primary/40 mb-4">hexagon</span>
+<h4 class="font-bold text-primary-container text-body-md">Earth Tags &amp; Locknuts</h4>
+</div>
+<div class="product-card bg-white rounded-lg border border-outline-variant/30 p-6 flex flex-col items-center justify-center text-center hover:border-secondary-container transition-all">
+<span class="material-symbols-outlined text-5xl text-primary/40 mb-4">shield</span>
+<h4 class="font-bold text-primary-container text-body-md">PVC Shrouds</h4>
+</div>
+<div class="product-card bg-white rounded-lg border border-outline-variant/30 p-6 flex flex-col items-center justify-center text-center hover:border-secondary-container transition-all">
+<span class="material-symbols-outlined text-5xl text-primary/40 mb-4">swap_horiz</span>
+<h4 class="font-bold text-primary-container text-body-md">Reducers &amp; Adaptors</h4>
+</div>
+</div>
+
+<button onclick="buyProduct('Industrial Product')" 
+style="margin-top:15px;background:#002147;color:white;padding:10px 18px;border:none;border-radius:6px;cursor:pointer;">
+Buy on WhatsApp
+</button>
+
+</section>
+<!-- Section: Pipes & Fittings (New from Image 10) -->
+<section class="scroll-mt-28" id="pipes-fittings">
+<div class="flex items-center justify-between mb-8 border-l-4 border-primary pl-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Seamless/Welded Pipes &amp; Fittings</h2>
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Mechanical &amp; Piping Solutions</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="lg:col-span-1 bg-primary-container rounded-xl overflow-hidden shadow-lg h-full flex flex-col">
+<div class="h-48 overflow-hidden">
+<img alt="Piping Catalog" class="w-full h-full object-cover object-top opacity-80 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida/ADBb0ugO8KzYoeCM9MIsqFinjrAyNp0-OaZeIwgVZqZJEDn9ojozNwL78o_E5WuhCNTwmw-fXLu1FQlpeC2QEQYSN7wpyTotHMnpnBexHBRILP_Xut8-ZpU0KTLlah55_n7ctjwla-2qfD6-viSHG0GUUcqIknFcgmc6IXWuAuHkdTS81J2U8iEYqAxhcuVF-SxZNrWyA-EKlTnV-GdPSdE__6OMgV0GS6a7WocI4GaTHs16dqBtgoTW-M5fdJB-ne4YVOnyhq9ML-1T"/>
+</div>
+<div class="p-8 text-white flex-grow">
+<h3 class="font-headline-md mb-4 text-secondary-fixed">Core Inventory</h3>
+<ul class="space-y-3 text-body-md opacity-90">
+<li class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-sm">circle</span> Elbows, Tees, Unions</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-sm">circle</span> Threadolets &amp; Weldolets</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-sm">circle</span> Pipe Nipples &amp; Reducers</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-sm">circle</span> Flanges (All Classes)</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-sm">circle</span> Fasteners &amp; Anchor Bolts</li>
+<li class="flex items-center"><span class="material-symbols-outlined text-secondary mr-2 text-sm">circle</span> Gaskets (Spiral Wound)</li>
+</ul>
+</div>
+</div>
+<div class="lg:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-4" id="valves">
+<!-- Valve items extracted from Image 10 -->
+<div class="product-card group relative bg-white border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-4xl text-primary mb-3">valve</span>
+<h4 class="font-bold text-primary-container">Ball Valves</h4>
+<div class="spec-overlay absolute inset-0 bg-primary/95 text-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity p-4 rounded-lg">
+<p class="text-xs text-center">Floating &amp; Trunnion mounted. Carbon &amp; Stainless Steel.</p>
+</div>
+</div>
+<div class="product-card group relative bg-white border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-4xl text-primary mb-3">radio_button_checked</span>
+<h4 class="font-bold text-primary-container">Globe Valves</h4>
+</div>
+<div class="product-card group relative bg-white border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-4xl text-primary mb-3">filter_alt</span>
+<h4 class="font-bold text-primary-container">Butterfly Valves</h4>
+</div>
+<div class="product-card group relative bg-white border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-4xl text-primary mb-3">dock</span>
+<h4 class="font-bold text-primary-container">Gate Valves</h4>
+</div>
+<div class="product-card group relative bg-white border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-4xl text-primary mb-3">straight</span>
+<h4 class="font-bold text-primary-container">Needle Valves</h4>
+</div>
+<div class="product-card group relative bg-white border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center justify-center hover:shadow-lg transition-all">
+<span class="material-symbols-outlined text-4xl text-primary mb-3">settings_applications</span>
+<h4 class="font-bold text-primary-container">Check Valves</h4>
+</div>
+</div>
+</div>
+
+<button onclick="buyProduct('Industrial Product')" 
+style="margin-top:15px;background:#002147;color:white;padding:10px 18px;border:none;border-radius:6px;cursor:pointer;">
+Buy on WhatsApp
+</button>
+
+</section>
+<!-- Section: Tubing & Instrumentation (New from Image 10) -->
+<section class="scroll-mt-28" id="tubing">
+<div class="flex items-center justify-between mb-8 border-l-4 border-secondary-container pl-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Hydraulic &amp; Instrumentation Tubing</h2>
+<span class="text-label-sm text-secondary uppercase tracking-widest">Precision Measurement &amp; Control</span>
+</div>
+</div>
+<div class="bento-grid">
+<div class="col-span-12 md:col-span-8 industrial-card bg-white rounded-lg p-8 border border-outline-variant/20 flex flex-col md:flex-row gap-8">
+<div class="md:w-1/2">
+<h3 class="font-headline-md text-primary-container mb-4">Tubing &amp; Compression</h3>
+<p class="text-on-surface-variant mb-6">High-precision stainless steel and copper tubing for instrumentation and hydraulic circuits.</p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-background p-4 rounded">
+<p class="font-bold text-primary">Coiled Tubing</p>
+<p class="text-xs text-on-surface-variant">Seamless long-length</p>
+</div>
+<div class="bg-background p-4 rounded">
+<p class="font-bold text-primary">Copper Tubes</p>
+<p class="text-xs text-on-surface-variant">Coated &amp; Bare</p>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 bg-surface-container-low rounded-lg p-6 flex flex-col justify-center">
+<h4 class="font-bold text-primary mb-3">Tube Fittings</h4>
+<p class="text-sm text-on-surface-variant mb-4">Single and double ferrule compression fittings for leak-proof connections.</p>
+<ul class="text-xs space-y-1">
+<li>• NPT, BSPT, Metric Threads</li>
+<li>• SS316, Monel, Hastelloy</li>
+</ul>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 industrial-card bg-primary-container rounded-lg p-8 text-white">
+<span class="material-symbols-outlined text-secondary-fixed text-4xl mb-4">speed</span>
+<h3 class="font-headline-md mb-4">Measurement</h3>
+<ul class="space-y-4">
+<li class="flex items-center justify-between border-b border-white/10 pb-2">
+<span>Pressure Gauges</span>
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</li>
+<li class="flex items-center justify-between border-b border-white/10 pb-2">
+<span>Flow Meters</span>
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</li>
+<li class="flex items-center justify-between">
+<span>Solenoid Valves</span>
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Section: RGS/PVC Conduit (New from Image 11) -->
+<section class="scroll-mt-28" id="conduit">
+<div class="flex items-center justify-between mb-8 border-l-4 border-primary pl-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">RGS/PVC Conduit &amp; Accessories</h2>
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Cable Management Infrastructure</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="product-card bg-white border border-outline-variant/30 rounded-lg overflow-hidden flex flex-col">
+<div class="h-40 bg-surface-container-low flex items-center justify-center overflow-hidden p-4">
+<img alt="Condulets" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ujBtRACz8z0atsgIEOWIl0S15sccKggmw271iAAhXeFKeBWruqseaSGnRsBF_frfzYwD7KPttbZmZ0DsEV9aoLDwxGX2zuFpdNQQDuKlgZ6clGCwAX-a6O-lGrVXehk9vFjOdmgjs4aGwf4lIPTRqK7ZrK4z31Kh_Pw6DHxidQni_S8MUQWH_T8FRsPNANZUT0w4ueAX3BJfwBbrdxa2dCWBySMB41zuTXtlbfAR3MAQiBIMyv4QbChOyb0MhUkVcu-nh8vGfmt9A"/>
+</div>
+<div class="p-4 border-t border-outline-variant/10">
+<h4 class="font-bold text-primary-container text-sm">Condulet Bodies</h4>
+<p class="text-xs text-on-surface-variant">LL, LB, LR, TEE, TB</p>
+</div>
+</div>
+<div class="product-card bg-white border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-4xl text-primary/60 mb-2">linear_scale</span>
+<h4 class="font-bold text-primary-container text-sm">Flexible Conduits</h4>
+<p class="text-xs text-on-surface-variant">Liquid-Tight &amp; Regular</p>
+</div>
+<div class="product-card bg-white border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-4xl text-primary/60 mb-2">hub</span>
+<h4 class="font-bold text-primary-container text-sm">Myer Hubs</h4>
+<p class="text-xs text-on-surface-variant">UL Listed / Weatherproof</p>
+</div>
+<div class="product-card bg-white border border-outline-variant/30 rounded-lg p-6 flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-4xl text-primary/60 mb-2">join_inner</span>
+<h4 class="font-bold text-primary-container text-sm">Conduit Unions</h4>
+<p class="text-xs text-on-surface-variant">Nipples &amp; Couplings</p>
+</div>
+</div>
+</section>
+<!-- Section: Support Systems (New from Image 11) -->
+<section class="scroll-mt-28" id="support-systems">
+<div class="flex items-center justify-between mb-8 border-l-4 border-secondary-container pl-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Cable Tray &amp; Support Systems</h2>
+<span class="text-label-sm text-secondary uppercase tracking-widest">Structural Engineering Hardware</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4 bg-surface-container-high rounded-xl p-8 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-primary mb-4">Support Hardware</h3>
+<ul class="space-y-4">
+<li class="flex items-center space-x-3 text-body-md font-semibold text-primary">
+<span class="w-8 h-8 rounded bg-primary-container text-white flex items-center justify-center text-xs">01</span>
+<span>Unistrut Channels</span>
+</li>
+<li class="flex items-center space-x-3 text-body-md font-semibold text-primary">
+<span class="w-8 h-8 rounded bg-primary-container text-white flex items-center justify-center text-xs">02</span>
+<span>Beam Clamps</span>
+</li>
+<li class="flex items-center space-x-3 text-body-md font-semibold text-primary">
+<span class="w-8 h-8 rounded bg-primary-container text-white flex items-center justify-center text-xs">03</span>
+<span>Threaded Rods</span>
+</li>
+</ul>
+</div>
+<div class="mt-8">
+<p class="text-sm text-on-surface-variant italic mb-4">Galvanized, Stainless Steel, and Epoxy Coated finishes available for extreme coastal environments.</p>
+</div>
+</div>
+<div class="md:col-span-8 bg-white border border-outline-variant/30 rounded-xl overflow-hidden shadow-md">
+<div class="p-6 bg-primary-container text-white flex justify-between items-center">
+<h3 class="font-headline-md">Structural Beams</h3>
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded text-xs uppercase font-bold tracking-widest">Inventory</span>
+</div>
+<div class="grid grid-cols-3 gap-6 p-8">
+<div class="flex flex-col items-center text-center space-y-2">
+<div class="w-16 h-16 bg-background rounded-full flex items-center justify-center border-2 border-primary/10">
+<span class="font-bold text-primary">H</span>
+</div>
+<span class="font-bold text-sm">H-Beams</span>
+</div>
+<div class="flex flex-col items-center text-center space-y-2">
+<div class="w-16 h-16 bg-background rounded-full flex items-center justify-center border-2 border-primary/10">
+<span class="font-bold text-primary">T</span>
+</div>
+<span class="font-bold text-sm">T-Beams</span>
+</div>
+<div class="flex flex-col items-center text-center space-y-2">
+<div class="w-16 h-16 bg-background rounded-full flex items-center justify-center border-2 border-primary/10">
+<span class="font-bold text-primary">∠</span>
+</div>
+<span class="font-bold text-sm">Angle Bars</span>
+</div>
+<div class="col-span-3 border-t border-outline-variant/20 pt-6">
+<p class="text-sm text-on-surface-variant text-center">Comprehensive range of Steel Plates, Flat Bars, Round Bars, and Wire Mesh.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Power Distribution (Preserved) -->
+<section class="scroll-mt-28" id="power-distribution">
+<div class="flex items-center justify-between mb-8 border-l-4 border-primary pl-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Power &amp; Signal Distribution</h2>
+<span class="text-label-sm text-on-surface-variant uppercase tracking-widest">Core Infrastructure Systems</span>
+</div>
+</div>
+<div class="industrial-card bg-white rounded-lg overflow-hidden flex flex-col md:flex-row border border-outline-variant/20">
+<div class="w-full md:w-1/2 h-64 md:h-auto">
+<img alt="Industrial Cables" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjyrwzIyYB12w689yit4T9KmWttNXa_FV8VuOa83545XObIFJi8KRl3mqDGDRefCkdHfxqCxlznHQ86Rknc5XG7CuZPPzUfBo0r3khnNaPZsptv76fZZDii9oT3tACE9EHZLhOsJ_yG4S9TktuhSlxLEQVPvy6m5cw01M5W7mKdVcYT5vvpoRh49vVWeh2L24knA7zah2JxCf3xuhfgj6rP3TVnn-lfr475k6tIhPDqMGiiMxv1h_ysT-0BbRtNbTuOLgxSi-tlIw"/>
+</div>
+<div class="p-8 flex-1">
+<h3 class="font-headline-lg text-primary-container mb-4">LV, MV, HV Systems</h3>
+<p class="text-on-surface-variant text-body-md mb-6">Full range of PVC, XLPE, AWA, and SWA power cables designed for high-performance and safety.</p>
+<div class="flex flex-wrap gap-2 mb-8">
+<span class="bg-surface-container-high text-primary px-3 py-1 text-label-sm rounded-full">LSHF</span>
+<span class="bg-surface-container-high text-primary px-3 py-1 text-label-sm rounded-full">FR Rated</span>
+<span class="bg-surface-container-high text-primary px-3 py-1 text-label-sm rounded-full">SWA/AWA</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded flex items-center space-x-3">
+<span class="material-symbols-outlined text-primary-container">account_tree</span>
+<span class="text-xs font-bold">Distribution Boxes</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded flex items-center space-x-3">
+<span class="material-symbols-outlined text-primary-container">ads_click</span>
+<span class="text-xs font-bold">Switchgear</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Quote Action Banner -->
+<section class="mt-32 bg-primary-container rounded-xl p-12 text-center text-white relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="font-display-lg text-headline-lg mb-6">Ready to Order?</h2>
+<p class="text-on-tertiary-container font-body-lg max-w-2xl mx-auto mb-10">Our technical specialists are ready to assist with project-specific requirements and commercial quotes.</p>
+<div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+<button class="bg-secondary-fixed text-on-secondary-fixed px-10 py-4 rounded-lg font-bold text-body-lg hover:bg-secondary-fixed-dim transition-all shadow-lg">Download Full Catalog</button>
+<button class="border-2 border-white/30 text-white px-10 py-4 rounded-lg font-bold text-body-lg hover:bg-white/10 transition-all">Submit Commercial RFQ</button>
+</div>
+</div>
+<!-- Decorative Graphic -->
+<div class="absolute -right-24 -top-24 w-64 h-64 bg-secondary-fixed/5 rounded-full blur-3xl"></div>
+<div class="absolute -left-24 -bottom-24 w-64 h-64 bg-surface-tint/10 rounded-full blur-3xl"></div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-gutter bg-primary-container text-on-tertiary">
+<div class="flex flex-col space-y-4">
+<div class="font-display-lg text-headline-md text-secondary-fixed">Stellar Realm</div>
+<p class="text-body-md text-on-tertiary/80 leading-relaxed">Premier trading partner for high-specification industrial materials and electrical systems across the UAE and Middle East.</p>
+</div>
+<div class="flex flex-col space-y-4">
+<h4 class="font-headline-md text-body-lg text-secondary-fixed">Catalog Navigation</h4>
+<div class="flex flex-col space-y-2 font-body-md text-on-tertiary/80">
+<a class="hover:text-secondary-fixed transition-colors" href="#cable-glands">Electrical Accessories</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#pipes-fittings">Mechanical Components</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#tubing">Instrumentation</a>
+<a class="hover:text-secondary-fixed transition-colors" href="#support-systems">Structural Support</a>
+</div>
+</div>
+<div class="flex flex-col space-y-4">
+<h4 class="font-headline-md text-body-lg text-secondary-fixed">Contact Details</h4>
+<div class="flex flex-col space-y-3 font-body-md text-on-tertiary/80">
+<div class="flex items-start space-x-2">
+<span class="material-symbols-outlined text-secondary-fixed text-xl">location_on</span>
+<span>9, Freej Al Qbeesat St, Al Danah, Abu Dhabi</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary-fixed text-xl">mail</span>
+<span>info@stellarrealm.ae</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary-fixed text-xl">call</span>
+<span>+971 58 200 2271</span>
+</div>
+</div>
+</div>
+<div class="col-span-1 md:col-span-3 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-label-sm text-on-tertiary/60">
+<p>© 2024 Stellar Realm Building Materials Trading. All Rights Reserved.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a class="hover:underline decoration-secondary-fixed" href="#">Privacy Policy</a>
+<a class="hover:underline decoration-secondary-fixed" href="#">Terms of Trade</a>
+</div>
+</div>
+</footer>
+<script>
+    // Simple intersection observer to update sidebar active state
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.sidebar-link');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+
+<footer style="background:#002147;color:white;padding:50px 20px;margin-top:80px;">
+  <div style="max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;">
+    <div>
+      <h2>Stellar Realm</h2>
+      <p>Premium supplier of industrial and building materials in UAE.</p>
+    </div>
+
+    <div>
+      <h3>Navigation</h3>
+      <ul style="list-style:none;padding:0;line-height:2;">
+        <li><a href="index.html" style="color:white;">Home</a></li>
+        <li><a href="about.html" style="color:white;">About</a></li>
+        <li><a href="products.html" style="color:white;">Products</a></li>
+        <li><a href="contact.html" style="color:white;">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>WhatsApp</h3>
+      <a href="https://wa.me/971582002271" target="_blank"
+      style="background:#25D366;color:white;padding:12px 20px;border-radius:8px;display:inline-block;text-decoration:none;font-weight:bold;">
+      Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/971582002271" target="_blank"
+style="position:fixed;bottom:25px;right:25px;background:#25D366;width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:9999;box-shadow:0 10px 25px rgba(0,0,0,0.2);">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="34"/>
+</a>
+
+
+<script>
+function buyProduct(productName){
+ const message = `Hello Stellar Realm, I want to buy: ${productName}`;
+ window.open(`https://wa.me/971582002271?text=${encodeURIComponent(message)}`,'_blank');
+}
+</script>
+
+</body></html>
